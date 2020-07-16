@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 11:35:24 by afoulqui          #+#    #+#              #
-#    Updated: 2020/07/09 15:03:02 by afoulqui         ###   ########.fr        #
+#    Updated: 2020/07/16 14:12:45 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #     VARIABLES     #
 # ----------------- #
 
-NAME		=	minirt
+NAME		=	miniRT
 
 LIB_DIR		=	libs/libft/  libs/minilibx/
 LIBFT		=	libs/libft/
@@ -52,12 +52,16 @@ LFLAG	+=	$(foreach framework, $(FRAMEWORK), -framework $(framework) )
 all	:		$(NAME)
 
 $(OBJ_DIR)%.o:%.c $(HEADERS)		
-				mkdir -p $(OBJ_DIR)
-				$(CC) $(CFLAG) $(IFLAG) -o $@ -c $< 
+				@mkdir -p $(OBJ_DIR)
+				@echo "\033[32mCompilation ... $(foreach file, $< , $(notdir $<))"
+				@$(CC) $(CFLAG) $(IFLAG) -o $@ -c $< 
 				
 
 $(NAME):	install $(OBJ)
 				$(CC) $(CFLAG) $(IFLAG) $(LFLAG) $(OBJ) -o $@
+				@echo "\n\t\033[36;1m*.............................*"
+				@echo "\n\t*     Compilation $(NAME)     *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
+				@echo "\n\t\033[036;1m*.............................*\033[0m"
 
 install :	
 				@make -C libs/libft

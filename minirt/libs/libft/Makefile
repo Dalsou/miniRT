@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 15:11:50 by afoulqui          #+#    #+#              #
-#    Updated: 2020/03/11 13:19:18 by afoulqui         ###   ########.fr        #
+#    Updated: 2020/07/16 14:10:03 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ IFLAG = 	$(foreach dir, $(INC_DIR), -I $(dir))
 #     FUNCTIONS     #
 # ----------------- #
 
+all:		$(NAME)
+
 $(OBJ_DIR)%.o: %.c $(HEADERS)
 			@mkdir -p $(OBJ_DIR)
 			@echo "\033[32mCompilation ... $(foreach file, $< , $(notdir $<))"
@@ -50,8 +52,6 @@ $(NAME):	$(OBJ) $(INC_DIR) Makefile
 			@echo "\n\t*     Compilation $(NAME)     *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
 			@echo "\n\t\033[036;1m*.............................*\033[0m"
 			@ar rcs ${NAME} ${OBJ}
-	
-all:		${NAME}
 
 debug :		$(OBJ) $(INC_DIR) Makefile
 			@$(CC) $(CFLAG) $(IFLAG) $(OBJ) main.c 

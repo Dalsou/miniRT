@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:28:54 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/07/09 18:15:45 by afoulqui         ###   ########.fr       */
+/*   Updated: 2020/07/16 15:36:36 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void		save_bmp(t_minirt *my_rt)
 	unsigned char	header[14];
 	unsigned char	f_info[40];
 
-	if ((fd = open("screenshot.bmp", O_RDWR | O_CREAT, 0777)) == -1)
+	if ((fd = open("miniRT_sreenshot.bmp", O_RDWR | O_CREAT, 0777)) == -1)
 		return ;
 	ft_bzero(&header, (sizeof(header)));
 	ft_bzero(&f_info, (sizeof(f_info)));

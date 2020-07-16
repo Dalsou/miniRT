@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 10:28:01 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/07/16 12:32:05 by afoulqui         ###   ########.fr       */
+/*   Updated: 2020/07/16 14:53:43 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 # include "keys.h"
 
 int			main(int argc, char **argv);
-int			check_arg(int argc, char **argv, int *save);
+void		check_arg(int argc, char **argv, t_minirt *my_rt);
 
 /*
 **	PARSING
 */
 
 void		*parse_file(char *file, t_minirt *my_rt);
-int			parse_line(t_minirt *my_rt);
+void		parse_line(t_minirt *my_rt);
 t_vec3		parse_vector(t_minirt *my_rt, char *str, int orientation);
 t_color		parse_color(t_minirt *my_rt, char *str_color);
 int			check_nb_split(char **split);
